@@ -1,0 +1,46 @@
+name: Build Cake Clicker WASM
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Emscripten
+        uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: latest
+
+      - name: Verify Emscripten
+        run: emcc -v
+
+      - name: Configure CMake
+        run: emcmake cmake -B build -S .
+
+      - name: Build Project
+        run: |
+          emmake make -C build
+          ls -la build/
+
+      - name: Prepare Web Artifacts
+        run: |
+          mkdir -p dist
+          cp build/CakeClicker.js dist/
+          cp build/CakeClicker.wasm dist/
+          cp web/index.html dist/
+          cp web/main.js dist/
+          cp web/style.css dist/
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cake-clicker-package
+          path: dist/
