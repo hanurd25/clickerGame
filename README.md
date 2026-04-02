@@ -10,7 +10,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
 .\emsdk install latest
 .\emsdk activate latest
-.\emsdk_env.ps1
+.\emsdk_env.ps1 # Check which file is correct for Linux or Windows
 
 
 ```
