@@ -1,0 +1,77 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f0e1, #f8e8c8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 40px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.click-area {
+    margin: 30px 0;
+}
+#cake {
+    font-size: 150px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    user-select: none;
+}
+#cake:active {
+    transform: scale(0.95);
+}
+.score-board {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px;
+}
+.upgrades button, #resetBtn {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 40px;
+    background: #d9a066;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.upgrades button:hover {
+    background: #b87a3a;
+}
+.stats {
+    margin: 20px;
+    font-size: 18px;
+}
+/* Floating number animation */
+@keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0px); }
+    100% { opacity: 0; transform: translateY(-80px); }
+}
+.floating-number {
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff6600;
+    pointer-events: none;
+    animation: floatUp 0.8s forwards;
+    z-index: 100;
+}
+
+.icon-selector {
+    margin: 20px 0;
+    font-size: 18px;
+}
+.icon-selector select {
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #f0e0c0;
+    cursor: pointer;
+}
