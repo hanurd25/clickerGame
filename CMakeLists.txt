@@ -13,5 +13,3 @@ target_link_options(CakeClicker PRIVATE
         "SHELL: -s EXPORT_ES6=1"
         "--bind"
 )
-# Only keep this if the 'web' folder actually exists with files in it!
-# file(COPY web/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/web)
